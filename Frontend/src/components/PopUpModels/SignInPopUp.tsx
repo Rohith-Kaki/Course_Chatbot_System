@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 // import woxsenlogo from "../../Assests/WoxsenLogo/woxsenlogo1.svg";
-import woxsenlogo from "../../Assests/logo/woxsn_logo.png"
+import woxsenlogo from "../../Assests/logo/woxsenlogo.webp"
 import { AiOutlineClose } from "react-icons/ai";
 
 interface AdminSignInProps {
@@ -33,7 +33,7 @@ const AdminSignIn: React.FC<AdminSignInProps> = ({ onClose }) => {
           <img
             src={woxsenlogo}
             alt="woxsenlogo"
-            className="w-44 h-40"
+            className="w-48"
           />
           <form className="">
             <div className="mb-5">

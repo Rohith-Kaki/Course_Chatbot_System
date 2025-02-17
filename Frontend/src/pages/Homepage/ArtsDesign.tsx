@@ -7,32 +7,32 @@ const app = () => {
   return (
     <div className="mx-auto w-full">
       <div className="">
-        {/* Business */}
-        <div id='Business' className="ml-28 inline-block font-workSans font-bold text-2xl text-white text-center px-12 py-4 bg-primary rounded-3xl">
-          Business
+        {/* technology */}
+        <div id='ArtsDesign' className="ml-28 inline-block font-workSans font-bold text-2xl text-white text-center px-12 py-4 bg-primary rounded-3xl">
+          Arts & Design
         </div>
-        {/* Business_cards */}
+        {/* technology_cards */}
         <div className="flex flex-wrap gap-8 justify-center">
             <CourseCard
-            courseName="Research & Development"
+            courseName="Sketching"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={AI}
             />
             <CourseCard
-            courseName="Sustainable Bussiness Research"
+            courseName="Arts & Design"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={Finance}
             />
             <CourseCard
-            courseName="Circular Economy"
+            courseName="History of Design"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={Marketing}
             />
             <CourseCard
-            courseName="MARKETING"
+            courseName="History of Art"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={Marketing}

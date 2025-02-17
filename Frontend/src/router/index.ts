@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Homepage from "../pages/Homepage";
-// import Chatbot from "../pages/Chatbotpage/index.tsx"
+import Chatbot from "../pages/Chatbotpage/index.jsx"
 import Layout from "./Outlet";
-
+import Layout1 from "./layout1.tsx"
 const router = createBrowserRouter([
   {
     element: Layout(),
@@ -11,12 +11,18 @@ const router = createBrowserRouter([
         path: "/",
         element: Homepage(),
       },
-      // {
-      //   path:"/chatbot",
-      //   element:Chatbot()
-      // }
     ],
   },
+  {
+    element:Layout1(),
+    children:[
+      {
+        path:"/chatbot",
+        element:Chatbot(),
+      }
+    ]
+
+  }
 ]);
 
 export default router;

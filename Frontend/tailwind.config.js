@@ -11,6 +11,7 @@ export default {
         workSans: ["workSans", "sans-serif"],
       },
     },
+    safelist: ["custom-scrollbar","custom-scrollbar-1"],
   },
   plugins: [],
 };

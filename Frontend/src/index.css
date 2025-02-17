@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-scrollbar {
+  scrollbar-gutter: stable; /* Prevents content shift when scrollbar appears */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Slim scrollbar */
+  transform: translateX(8px); /* Move scrollbar 8px to the right */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Track remains invisible */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: white; /* White scrollbar */
+  border-radius: 8px; /* Rounded edges */
+  height: 40px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #e0e0e0; /* Light gray on hover */
+}
+
+
+
+.custom-scrollbar-1{
+  scrollbar-gutter: stable; /* Prevents content shift when scrollbar appears */
+}
+
+.custom-scrollbar-1::-webkit-scrollbar {
+  width: 6px; /* Slim scrollbar */
+  transform: translateX(24px); /* Move scrollbar 8px to the right */
+}
+
+.custom-scrollbar-1::-webkit-scrollbar-track {
+  background: transparent; /* Track remains invisible */
+}
+
+.custom-scrollbar-1::-webkit-scrollbar-thumb {
+  background: black; /* White scrollbar */
+  border-radius: 8px; /* Rounded edges */
+  height: 60px;
+  max-height:60px;
+}
+
+.custom-scrollbar-1::-webkit-scrollbar-thumb:hover {
+  background: #e0e0e0; /* Light gray on hover */
+}

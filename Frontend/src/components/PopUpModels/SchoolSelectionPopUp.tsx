@@ -37,6 +37,7 @@ const SchoolsList: React.FC<SchoolsListProps> = ({ onClose }) => {
             <a
               href="#Technology"
               className="text-options group-hover:text-primary text-lg font-semibold font-workSans"
+              onClick={onClose}
             >
               Technology
             </a>
@@ -49,6 +50,7 @@ const SchoolsList: React.FC<SchoolsListProps> = ({ onClose }) => {
             <a
               href="#Business"
               className="text-options group-hover:text-primary text-lg font-semibold font-workSans"
+              onClick={onClose}
             >
               Business
             </a>
@@ -59,8 +61,9 @@ const SchoolsList: React.FC<SchoolsListProps> = ({ onClose }) => {
               <FiChevronRight size={20} />
             </div>
             <a
-              href="#Arts & Design"
+              href="#ArtsDesign"
               className="text-options group-hover:text-primary text-lg font-semibold font-workSans"
+              onClick={onClose}
             >
               Arts & Design
             </a>
@@ -120,3 +123,122 @@ const SchoolsList: React.FC<SchoolsListProps> = ({ onClose }) => {
 };
 
 export default SchoolsList;
+
+
+// import React, {useRef} from "react";
+// import { AiOutlineClose } from "react-icons/ai";
+// import { FiChevronRight } from "react-icons/fi";
+
+// function SchoolsList({onClose,schoolRefs}) {
+//   const schoolSelectorRef = useRef();
+
+//   // const handleSelectedSchool = (schoolName) => {
+//   //   onClose();
+//   //   setTimeout(() => {
+//   //     if(schoolRefs[schoolName]?.current){
+//   //       schoolRefs[schoolName].current.scrollIntoView({behaviour:"smooth"});
+//   //     }
+//   //   },300);
+//   // };
+//   const closeSchoolSelector = (e) => {
+//     if(schoolSelectorRef.current === e.target){
+//       onClose();
+//     };
+//   };
+
+//   return (
+//     <div onClick={closeSchoolSelector} ref={schoolSelectorRef} className="z-20 fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center">
+//       <div className="mt-20 flex flex-col gap-5">
+//         <button onClick={onClose} className="place-self-end hover:font-extrabold hover:scale-110"><AiOutlineClose size={30} style={{color:"#000000"}}/></button>
+//         <ul className="bg-white px-16 py-10 rounded-3xl drop-shadow-2xl gap-4 flex flex-col flex-wrap">
+//           {/* Technology */}
+//           <li className="group flex flex-row hover:translate-x-3 hover-scale-[1.02] gap-1 duration-300 items-center">
+//             <div className="text-primary group-hover:text-black">
+//               <FiChevronRight size={20}/>
+//             </div>
+//             <a
+//               // onClick={() => handleSelectedSchool("Technology")}
+//               className="text-options group-hover:text-primary text-lg font-semibold font-workSans cursor-pointer"
+//             >
+//               Technology
+//             </a>
+//           </li>
+//           {/* Business */}
+//           <li className="group flex flex-row hover:translate-x-3 hover-scale-[1.02] gap-1 duration-300 items-center">
+//             <div className="text-primary group-hover:text-black">
+//               <FiChevronRight size={20}/>
+//             </div>
+//             <a
+//               // onClick={() => handleSelectedSchool("Business")}
+//               className="text-options group-hover:text-primary text-lg font-semibold font-workSans cursor-pointer"
+//             >
+//               Business
+//             </a>
+//           </li>
+//           {/* Arts & Design */}
+//           <li className="group flex flex-row hover:translate-x-3 hover-scale-[1.02] gap-1 duration-300 items-center">
+//             <div className="text-primary group-hover:text-black">
+//               <FiChevronRight size={20}/>
+//             </div>
+//             <a
+//               // onClick={() => handleSelectedSchool("ArtsDesign")}
+//               className="text-options group-hover:text-primary text-lg font-semibold font-workSans"
+//             >
+//               Arts & Design 
+//             </a>
+//           </li>
+//           {/* Architecture & Planning */}
+//           <li className="group flex flex-row hover:translate-x-3 hover-scale-[1.02] gap-1 duration-300 items-center">
+//             <div className="text-primary group-hover:text-black">
+//               <FiChevronRight size={20}/>
+//             </div>
+//             <a
+//               // onClick={() => handleSelectedSchool("ArchitecturePlanning")}
+//               className="text-options group-hover:text-primary text-lg font-semibold font-workSans"
+//             >
+//               Architecture & Planning
+//             </a>
+//           </li>
+//           {/* Liberal Arts & Humanities */}
+//           <li className="group flex flex-row hover:translate-x-3 hover-scale-[1.02] gap-1 duration-300 items-center">
+//             <div className="text-primary group-hover:text-black">
+//               <FiChevronRight size={20} />
+//             </div>
+//             <a
+//               // onClick={() => handleSelectedSchool("LiberalartsHumanities")}
+//               className="text-options group-hover:text-primary text-lg font-semibold font-workSans"
+//             >
+//               Liberal Arts & Humanities
+//             </a>
+//           </li>
+//           {/* Law */}
+//           <li className="group flex flex-row hover:translate-x-3 hover-scale-[1.02] gap-1 duration-300 items-center">
+//             <div className="text-primary group-hover:text-black">
+//               <FiChevronRight size={20}/>
+//             </div>
+//             <a
+//               // onClick={() => handleSelectedSchool("Law")}
+//               className="text-options group-hover:text-primary text-lg font-semibold font-workSans"
+//             >
+//               Law
+//             </a>
+//           </li>
+//           {/* Sciences */}
+//           <li className="group flex flex-row hover:translate-x-3 hover-scale-[1.02] gap-1 duration-300 items-center">
+//             <div className="text-primary group-hover:text-black">
+//               <FiChevronRight size={20} />
+//             </div>
+//             <a
+//               // onClick={() => handleSelectedSchool("Sciences")}
+//               className="text-options group-hover:text-primary text-lg font-semibold font-workSans"
+//             >
+//               Sciences
+//             </a>
+//           </li>
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default SchoolsList;
