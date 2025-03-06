@@ -1,7 +1,7 @@
 export async function sendMsgToOpenAI(school:string, course:string, userquery: string): Promise<string> {
   try {
     console.log("Making POST request to backend with userquery:", userquery); // Add this line
-    const response = await fetch("http://127.0.0.1:5173/api/chatbot", {
+    const response = await fetch("", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,4 +20,3 @@ export async function sendMsgToOpenAI(school:string, course:string, userquery: s
     return "Server error. Try again later.";
   }
 }
-
