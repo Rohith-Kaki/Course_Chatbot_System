@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Homepage from "../pages/Homepage";
 import Chatbot from "../pages/Chatbotpage"
+import Admin from "../pages/Adminpage"
 import Layout from "./Outlet";
 import Layout1 from "./layout1.tsx"
 const router = createBrowserRouter([
@@ -17,8 +18,12 @@ const router = createBrowserRouter([
     element:Layout1(),
     children:[
       {
-        path:"/chatbot",
+        path:"/chatbot/",
         element:Chatbot(),
+      },
+      {
+        path: "/Admin",
+        element: Admin(),
       }
     ]
 

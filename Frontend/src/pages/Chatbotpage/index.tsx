@@ -1,9 +1,9 @@
-import Chatbotcontent from "./Chatbot"
+import ChatbotContent from "./Chatbot"
 
 export const Chatbotpage = () => {
   return (
     <>
-      <Chatbotcontent/>
+      <ChatbotContent/>
     </>
   )
 }

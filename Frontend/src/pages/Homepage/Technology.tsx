@@ -14,28 +14,36 @@ const app = () => {
         {/* technology_cards */}
         <div className="flex flex-wrap gap-8 justify-center">
             <CourseCard
-            courseName="ARTIFICIAL INTELLGIENCE"
+            coursetitle="PYTHON"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={AI}
+            school="school_of_technology"
+            course="python"
             />
             <CourseCard
-            courseName="FINANCE"
+            coursetitle="MACHINE LEARNING"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={Finance}
+            school="school_of_technology"
+            course="ml"
             />
             <CourseCard
-            courseName="MARKETING"
+            coursetitle="JAVA"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={Marketing}
+            school="school_of_technology"
+            course="java"
             />
             <CourseCard
-            courseName="MARKETING"
+            coursetitle="ARTIFICIAL INTELLIGENCE"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={Marketing}
+            school="school_of_technology"
+            course="ai"
             />
         </div>
       </div>

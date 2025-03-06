@@ -1,21 +1,31 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface CourseCardProps {
-  courseName: string;
+  coursetitle: string;
   courseDescription: string;
   courseButton: string;
   image: string;
+  school: string;
+  course: string;
 }
 
 const CourseCard: React.FC<CourseCardProps> = ({
-  courseName,
+  coursetitle,
   courseDescription,
   courseButton,
   image,
+  school,
+  course,
 }) => {
+  const navigate = useNavigate();
+  const handleclick = () => {
+    // navigate(`/chatbot/${school}/${course}`);
+    navigate(`/chatbot?title=${coursetitle}&school=${school}&course=${course}`);
+  };
   return (
     <div className="relative mt-12 w-[400px] h-auto bg-primary rounded-lg overflow-hidden hover:shadow-xl transform transition-all hover:scale-[1.02] duration-300">
-    {/* Image Container */}
+      {/* Image Container */}
       <div className="aspect-video relative">
         <img
           src={image}
@@ -26,9 +36,9 @@ const CourseCard: React.FC<CourseCardProps> = ({
 
       {/* Content Container */}
       <div className="p-4 md:p-6 space-y-4">
-        {/* Title */}
+        {/* coursetitle */}
         <h2 className="font-workSans text-xl md:text-2xl font-bold text-white text-center">
-          {courseName}
+            {coursetitle}
         </h2>
 
         {/* Description */}
@@ -39,6 +49,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
         {/* Button Container */}
         <div className="pt-4 flex justify-center">
           <button
+            onClick={handleclick}
             className="text-white font-workSans font-bold text-lg md:text-xl 
                            border-2 border-white rounded-full 
                            py-2 px-4 md:py-3 md:px-6

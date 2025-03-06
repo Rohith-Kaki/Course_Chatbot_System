@@ -14,28 +14,36 @@ const app = () => {
         {/* Business_cards */}
         <div className="flex flex-wrap gap-8 justify-center">
             <CourseCard
-            courseName="Research & Development"
+            coursetitle="MARKETING"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={AI}
+            school="school_of_business"
+            course="marketing"
             />
             <CourseCard
-            courseName="Sustainable Bussiness Research"
+            coursetitle="FINANCE"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={Finance}
+            school="school_of_business"
+            course="finance"
             />
             <CourseCard
-            courseName="Circular Economy"
+            coursetitle="BUSINESS LAW"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={Marketing}
+            school="school_of_business"
+            course="businesslaw"
             />
             <CourseCard
-            courseName="MARKETING"
+            coursetitle="ACCOUNTING"
             courseDescription="Lorem ipsum dolor ipsum dignissimos illo quod sunt expedita, nostrum sapiente nobis eius, aperiam minus modi nisi dolorum mollitia?"
             courseButton="OPEN NOW"
             image={Marketing}
+            school="school_of_business"
+            course="accounting"
             />
         </div>
       </div>
