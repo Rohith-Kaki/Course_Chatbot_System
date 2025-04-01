@@ -5,8 +5,11 @@ import { RiRobot3Line } from "react-icons/ri";
 import { IoIosArrowBack } from "react-icons/io"; // Import back button icon
 import { useLocation, useNavigate } from "react-router-dom";
 import { toTitleCase } from "../../utils/transformText.ts";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 // @ts-ignore
-import { sendMsgToOpenAI } from "./openai.js";
+import { sendMsgToOllama } from "./ollama.js";
 
 function App() {
   const navigate = useNavigate();
@@ -18,35 +21,6 @@ function App() {
   const course = searchParams.get("course") || "";
 
   const [inputText, setInputText] = useState<string>("");
-  // const [topics] = useState([
-  //   "What is Python?",
-  //   "Python Data Types",
-  //   "Operators in Python",
-  //   "Loops in Python",
-  //   "Functions in Python",
-  //   "Modules and Packages",
-  //   "Object-Oriented Programming",
-  //   "Error Handling",
-  //   "File Handling",
-  //   "Python Libraries",
-  //   "Database Connectivity",
-  //   "Web Scraping",
-  //   "Tensorflow",
-  //   "What is Python?",
-  //   "Python Data Types",
-  //   "Operators in Python",
-  //   "Loops in Python",
-  //   "Functions in Python",
-  //   "Modules and Packages",
-  //   "Object-Oriented Programming",
-  //   "Error Handling",
-  //   "File Handling",
-  //   "Python Libraries",
-  //   "Database Connectivity",
-  //   "Web Scraping",
-  //   "Tensorflow",
-  // ]);
-
   const courseTopicList: Record<string, string[]> = {
     python: [
       "Syntax and Basics",
@@ -238,7 +212,7 @@ function App() {
   const handleTopicClick = async (topic: string) => {
     setInputText(topic);
     try {
-      const res = await sendMsgToOpenAI(school, course, topic);
+      const res = await sendMsgToOllama(school, course, topic);
       setMessages([
         ...messages,
         { text: topic, isBot: false },
@@ -272,7 +246,7 @@ function App() {
     if (inputTextTrimmed == "") return;
     try {
       console.log("Sending messages to OpenAI:", inputTextTrimmed); //check line for function is being called or not.
-      const res: string = await sendMsgToOpenAI(
+      const res: string = await sendMsgToOllama(
         school,
         course,
         inputTextTrimmed
@@ -318,7 +292,7 @@ function App() {
 
           <div className="lowerSideBottom">
             <ul className="courseSubTopics text-xl min-h-[28rem] max-h-[32rem] overflow-y-auto custom-scrollbar pr-8">
-              {courseTopicList[course].map((topic: string, index: number) => (
+              {courseTopicList[course]?.map((topic: string, index: number) => (
                 <li
                   key={index}
                   className="mb-2 p-1 hover:bg-[#F39CA6] hover:text-black duration-100 rounded cursor-pointer"
@@ -351,7 +325,17 @@ function App() {
                 ) : (
                   <FaUser size={28} className="mr-8 flex-shrink-0" />
                 )}
-                <p className="flex-1">{message.text}</p>
+
+                <div className="flex-1 markdown-content">
+                  {/* <ReactMarkdown>{message.text}</ReactMarkdown> */}
+                  {/* <ReactMarkdown>{message.text}</ReactMarkdown>
+                  <ReactMarkdown children={message.text} /> */}
+
+                  {/* <MarkdownAsync>{"# Hi, *Pluto*!"}</MarkdownAsync> */}
+                  <Markdown remarkPlugins={[remarkGfm]}>
+                    {message.text}
+                  </Markdown>
+                </div>
               </div>
             ))}
           </div>

@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 // import woxsenlogo from "../../Assests/WoxsenLogo/woxsenlogo1.svg";
 import woxsenlogo from "../../Assests/logo/woxsenlogo.webp"
 import { AiOutlineClose } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 interface AdminSignInProps {
   onClose: () => void;
@@ -9,10 +10,29 @@ interface AdminSignInProps {
 
 const AdminSignIn: React.FC<AdminSignInProps> = ({ onClose }) => {
   const signInFormRef = useRef<HTMLDivElement>(null);
+  const navigate =  useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+
+  const VALID_EMAIL = "admin@woxsen.edu.in";
+  const VALID_PASSWORD = "admin123";
 
   const closeSignInForm = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (signInFormRef.current === e.target) {
       onClose();
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+
+    if(email === VALID_EMAIL && password === VALID_PASSWORD){
+      navigate("/Admin");
+      onClose();
+    }else{
+      setError("Invalid email or password. Please try again.");
     }
   };
 
@@ -35,7 +55,7 @@ const AdminSignIn: React.FC<AdminSignInProps> = ({ onClose }) => {
             alt="woxsenlogo"
             className="w-48"
           />
-          <form className="">
+          <form onSubmit={handleSubmit} className="w-full">
             <div className="mb-5">
               <label
                 htmlFor="email"
@@ -46,7 +66,9 @@ const AdminSignIn: React.FC<AdminSignInProps> = ({ onClose }) => {
               <input
                 type="email"
                 id="email"
-                placeholder="admin@woxsen.edu.in"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="email"
                 required
                 className="w-full px-4 py-3 bg-[#e8e2e2] rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
               />
@@ -61,15 +83,20 @@ const AdminSignIn: React.FC<AdminSignInProps> = ({ onClose }) => {
               <input
                 type="password"
                 id="password"
-                placeholder="******"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder='password'
                 required
                 className="w-full px-4 py-3 bg-[#e8e2e2] rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
               />
             </div>
+            {error && (
+              <p className="text-red-500 text-sm text-center mb-4">{error}</p>
+            )}
+            <button type="submit" className="bg-primary text-white font-semibold w-1/2 py-3 rounded-2xl hover:bg-[#e6243b] hover:scale-105 duration-200 mx-auto block">
+              Sign In
+            </button>
           </form>
-          <button className="bg-primary text-white font-semibold w-1/2 py-3 rounded-2xl hover:bg-[#e6243b] hover:scale-105 duration-200">
-            Sign In
-          </button>
         </div>
       </div>
     </div>

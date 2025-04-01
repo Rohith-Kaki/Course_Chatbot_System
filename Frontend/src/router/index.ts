@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Homepage from "../pages/Homepage";
 import Chatbot from "../pages/Chatbotpage"
 import Admin from "../pages/Adminpage"
-import Layout from "./Outlet";
-import Layout1 from "./layout1.tsx"
+import Layout from "./PublicLayout.tsx";
+import AppLayout from "./AppLayout.tsx"
 const router = createBrowserRouter([
   {
     element: Layout(),
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    element:Layout1(),
+    element:AppLayout(),
     children:[
       {
         path:"/chatbot/",

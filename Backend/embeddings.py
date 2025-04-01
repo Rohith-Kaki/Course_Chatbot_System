@@ -1,7 +1,7 @@
-import chromadb
-from PyPDF2 import PdfReader
-from sentence_transformers import SentenceTransformer
-from nltk.tokenize import sent_tokenize
+import chromadb # type: ignore
+from PyPDF2 import PdfReader # type: ignore
+from sentence_transformers import SentenceTransformer # type: ignore
+from nltk.tokenize import sent_tokenize # type: ignore
 from database import get_db_connection
 
 client = chromadb.PersistentClient(path="chroma_db/")
@@ -9,7 +9,10 @@ embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
 # Create collections for each course inside a school
-schools = {"School_of_technology":["Python","Java","AI","ML"],"School_of_business":["Marketing","Accounts"],"School_of_law":["History_law"],"School_of_design":["Design_history"]}
+schools = {"school_of_technology":["python","java","ai","ml"],
+           "school_of_business":["marketing","accounting","businesslaw","finance"],
+           "school_of_artsdesign":["artsanddesign","english","historyofart","historyofdesign"]
+           }
 for school, courses in schools.items():
     for course in courses:
         collection_name = f"{school}_{course}"
@@ -54,11 +57,11 @@ def store_pdf_embeddings():
     records = cursor.fetchall()
     conn.close()
 
-    collection_name = f"{school}_{course}"
-    collection = client.get_or_create_collection(name=collection_name)
+    # collection_name = f"{school}_{course}"
+    # collection = client.get_or_create_collection(name=collection_name)
 
     for record  in records:
-        school, course, file_path = record["school"], record["course"], record["file_path"]
+        school, course, file_path = record
         collection_name = f"{school}_{course}"
         collection = client.get_or_create_collection(name=collection_name)
         print(f"Processing {file_path}...")
@@ -75,4 +78,5 @@ def store_pdf_embeddings():
             )
 
         print(f"{file_path} embeddings added to {collection_name} in ChromaDB.")
-
+        collection_count = client.get_collection(collection_name)
+        print(collection_count.count())  # Should show number of stored chunks

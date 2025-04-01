@@ -17,6 +17,10 @@ def create_tables():
     conn.commit()
     conn.close()
 
+def get_db_connection():
+    conn = sqlite3.connect('database.db')
+    return conn
+
 if __name__ == "__main__":
     create_tables()
     print("Database and tables created successfully!")
