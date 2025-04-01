@@ -46,9 +46,7 @@
 
 ### How upload course content/materials ?
 1. Visit `http://localhost:5173` and click the `Admin  button` on the navbar.
-2. Use the login credentials:
-    * Email: admin@woxsen.edu.in
-    * Password: admin123
+2. Use the login credentials.
 3. Upload Files
     * Select a school and course from the drop downs.
     * Upload one or more PDF's.
